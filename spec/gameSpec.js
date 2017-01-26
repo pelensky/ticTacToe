@@ -54,13 +54,31 @@ describe("Game", function() {
       game.chooseSpace("a1");
     });
 
-    it("should allows the player1 (X) to choose a space on the grid", function(){
+    it("should allows player1 (X) to choose a space on the grid", function(){
       expect(game.board.spaces).toEqual(["X","a2","a3","b1","b2","b3","c1","c2","c3"]);
     });
 
-    it("should allows the player1 (X) to choose a space on the grid", function(){
+    it("should allow player2 (X) to choose a space on the grid", function(){
+      game.chooseSpace("a2");
+      expect(game.board.spaces).toEqual(["X","O","a3","b1","b2","b3","c1","c2","c3"]);
+    });
+
+    it("should continue until the board is full", function(){
+      game.chooseSpace("a2");
+      game.chooseSpace("a3");
+      expect(game.board.spaces).toEqual(["X","O","X","b1","b2","b3","c1","c2","c3"]);
+      game.chooseSpace("b1");
+      expect(game.board.spaces).toEqual(["X","O","X","O","b2","b3","c1","c2","c3"]);
       game.chooseSpace("b2");
-      expect(game.board.spaces).toEqual(["X","a2","a3","b1","O","b3","c1","c2","c3"]);
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","b3","c1","c2","c3"]);
+      game.chooseSpace("b3");
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","c1","c2","c3"]);
+      game.chooseSpace("c1");
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","c2","c3"]);
+      game.chooseSpace("c2");
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","c3"]);
+      game.chooseSpace("c3");
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","X"]);
     });
   });
 });
