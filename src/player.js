@@ -19,4 +19,4 @@ Player.prototype.currentPlayer = function(){
   } else {
     return false;
   }
-}
+};
