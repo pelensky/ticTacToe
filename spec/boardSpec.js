@@ -14,16 +14,13 @@ describe("Board", function() {
   });
 
   describe("Choosing a space", function(){
-    it("should check if the space is free", function(){
-      expect(board._isSpaceEmpty("a1")).toEqual(true);
-    });
-
     it("should allow a player to choose an empty space", function(){
-      board.chooseSpace(board.a1, "X");
-      expect(board.a1).toEqual("X");
+      expect(board.chooseSpace("a1", "X")).toEqual("X");
     });
-    // it("should not allow a player to choose a taken space", function(){
 
-    // });
+    it("should not allow a player to choose a taken space", function(){
+      board.chooseSpace("a1", "X");
+      expect(board.chooseSpace("a1", "O")).toEqual("This space is taken, try again");
+    });
   });
 });

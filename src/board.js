@@ -5,20 +5,13 @@ function Board() {
   this.spaces = ["a1","a2","a3","b1","b2","b3","c1","c2","c3"]
 }
 
-Board.prototype._isSpaceEmpty = function(space){
+Board.prototype.chooseSpace = function(space, player){
   for(var i=0; i < this.spaces.length; i++){
     if(space === this.spaces[i]){
-      return true;
+      this.spaces[i] = player;
+      return this.spaces[i]
     } else {
-      return false;
+      return "This space is taken, try again";
     }
-  }
-
-};
-
-Board.prototype.chooseSpace = function(space, player){
-  if (this._isSpaceEmpty(space)){
-    space = player;
-    return space;
   }
 };

@@ -2,17 +2,6 @@ describe("Game", function() {
   var game;
   var player1;
   var player2;
-  var a1 = Symbol();
-  var a2 = Symbol();
-  var a3 = Symbol();
-  var b1 = Symbol();
-  var b2 = Symbol();
-  var b3 = Symbol();
-  var c1 = Symbol();
-  var c2 = Symbol();
-  var c3 = Symbol();
-  var p1 = Symbol();
-  var p2 = Symbol();
 
   beforeEach(function() {
     player1 = new Player("Dan");
@@ -26,12 +15,12 @@ describe("Game", function() {
   });
 
   describe("Adding players", function(){
-    it("should add player 1", function(){
+    it("should add player 1 (X)", function(){
       game.addPlayer(player1);
       expect(game.player1).toEqual(player1);
     });
 
-    it("should add player 2 if player 1 is loaded", function(){
+    it("should add player 2 (O) if player 1 is loaded", function(){
       game.addPlayer(player1);
       game.addPlayer(player2);
       expect(game.player2).toEqual(player2);
@@ -44,7 +33,7 @@ describe("Game", function() {
       game.addPlayer(player2);
     });
 
-    it("should be player 1's turn at the start", function(){
+    it("should be player 1's (X) turn at the start", function(){
       game.startGame();
       expect(game.player1.isTurn).toEqual(true);
     });
@@ -63,9 +52,10 @@ describe("Game", function() {
       game.addPlayer(player2);
       game.startGame();
     });
-    it("should allows the player to choose a space on the grid", function(){
-      game.chooseSpace(a1);
-    expect(game.board.a1).toEqual(p1);
+
+    it("should allows the player1 (X) to choose a space on the grid", function(){
+      game.chooseSpace("a1");
+    expect(game.board.spaces).toEqual(["X","a2","a3","b1","b2","b3","c1","c2","c3"]);
     });
   });
 });

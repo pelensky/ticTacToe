@@ -15,9 +15,14 @@ Game.prototype.addPlayer = function(player) {
 
 Game.prototype.startGame = function(){
   this.player1.switchTurn();
+  this.board = new Board();
 };
 
 Game.prototype.switchTurn = function(){
   this.player1.switchTurn();
   this.player2.switchTurn();
+};
+
+Game.prototype.chooseSpace = function(space){
+this.board.chooseSpace(space, "X");
 };
