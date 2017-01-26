@@ -9,12 +9,9 @@ function Game() {
   this.winner = null;
 }
 
-Game.prototype.addPlayer = function(player) {
-  if (!this.player1){
-    this.player1 = player;
-  } else {
-    this.player2 = player;
-  }
+Game.prototype.addPlayers = function(player1, player2) {
+    this.player1 = player1;
+    this.player2 = player2;
 };
 
 Game.prototype.startGame = function(){

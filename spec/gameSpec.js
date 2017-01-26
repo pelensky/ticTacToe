@@ -20,21 +20,19 @@ describe("Game", function() {
 
   describe("Adding players", function(){
     it("should add player 1 (X)", function(){
-      game.addPlayer(player1);
+      game.addPlayers(player1, player2);
       expect(game.player1).toEqual(player1);
     });
 
     it("should add player 2 (O) if player 1 is loaded", function(){
-      game.addPlayer(player1);
-      game.addPlayer(player2);
+      game.addPlayers(player1, player2);
       expect(game.player2).toEqual(player2);
     });
   });
 
   describe("Taking turns", function(){
     beforeEach(function() {
-      game.addPlayer(player1);
-      game.addPlayer(player2);
+      game.addPlayers(player1, player2);
     });
 
     it("should be player 1's (X) turn at the start", function(){
@@ -52,8 +50,7 @@ describe("Game", function() {
 
   describe("Choosing a space", function(){
     beforeEach(function() {
-      game.addPlayer(player1);
-      game.addPlayer(player2);
+      game.addPlayers(player1, player2);
       game.startGame();
       game.chooseSpace("a1");
     });
@@ -92,8 +89,7 @@ describe("Game", function() {
 
   describe("turn count", function(){
     it("should increase by one each turn", function(){
-      game.addPlayer(player1);
-      game.addPlayer(player2);
+      game.addPlayers(player1, player2);
       game.startGame();
       game.chooseSpace("a1");
       expect(game.turnCount).toEqual(1);
@@ -102,8 +98,7 @@ describe("Game", function() {
 
   describe("check if game is won", function(){
     beforeEach(function() {
-      game.addPlayer(player1);
-      game.addPlayer(player2);
+      game.addPlayers(player1, player2);
       game.startGame();
       game.chooseSpace("a1");
       game.chooseSpace("b1");
