@@ -21,11 +21,7 @@ $(document).ready(function() {
     } else {
       $('#a1').html(`O`);
     }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
+    check_game_over();
   });
 
   $("#a2Link").on("click", function(){
@@ -35,114 +31,87 @@ $(document).ready(function() {
     } else {
       $('#a2').html(`O`);
     }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
+    check_game_over();
   });
 
-  $("#a3Link").on("click", function(){
-    game.chooseSpace("a3");
-    if(game.currentPlayer === game.player1.name){
-      $('#a3').html(`X`);
-    } else {
-      $('#a3').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
+    $("#a3Link").on("click", function(){
+      game.chooseSpace("a3");
+      if(game.currentPlayer === game.player1.name){
+        $('#a3').html(`X`);
+      } else {
+        $('#a3').html(`O`);
+      }
+      check_game_over();
 
+    });
+
+    $("#b1Link").on("click", function(){
+      game.chooseSpace("b1");
+      if(game.currentPlayer === game.player1.name){
+        $('#b1').html(`X`);
+      } else {
+        $('#b1').html(`O`);
+      }
+      check_game_over();
+
+    });
+
+    $("#b2Link").on("click", function(){
+      game.chooseSpace("b2");
+      if(game.currentPlayer === game.player1.name){
+        $('#b2').html(`X`);
+      } else {
+        $('#b2').html(`O`);
+      }
+      check_game_over();
+
+    });
+
+    $("#b3Link").on("click", function(){
+      game.chooseSpace("b3");
+      if(game.currentPlayer === game.player1.name){
+        $('#b3').html(`X`);
+      } else {
+        $('#b3').html(`O`);
+      }
+      check_game_over();
+
+    });
+
+    $("#c1Link").on("click", function(){
+      game.chooseSpace("c1");
+      if(game.currentPlayer === game.player1.name){
+        $('#c1').html(`X`);
+      } else {
+        $('#c1').html(`O`);
+      }
+      check_game_over();
+    });
+
+    $("#c2Link").on("click", function(){
+      game.chooseSpace("c2");
+      if(game.currentPlayer === game.player1.name){
+        $('#c2').html(`X`);
+      } else {
+        $('#c2').html(`O`);
+      }
+      check_game_over();
+    });
+
+    $("#c3Link").on("click", function(){
+      game.chooseSpace("c3");
+      if(game.currentPlayer === game.player1.name){
+        $('#c3').html(`X`);
+      } else {
+        $('#c3').html(`O`);
+      }
+      check_game_over();
+    });
+
+    function check_game_over() {
+      if(game.gameOver){
+        $('h1').html(`${game.winner} is the almighty winner!`);
+        $( "a" ).remove();
+      }
+    }
   });
-
-  $("#b1Link").on("click", function(){
-    game.chooseSpace("b1");
-    if(game.currentPlayer === game.player1.name){
-      $('#b1').html(`X`);
-    } else {
-      $('#b1').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-
-  });
-
-  $("#b2Link").on("click", function(){
-    game.chooseSpace("b2");
-    if(game.currentPlayer === game.player1.name){
-      $('#b2').html(`X`);
-    } else {
-      $('#b2').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-
-  });
-
-  $("#b3Link").on("click", function(){
-    game.chooseSpace("b3");
-    if(game.currentPlayer === game.player1.name){
-      $('#b3').html(`X`);
-    } else {
-      $('#b3').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-
-  });
-
-  $("#c1Link").on("click", function(){
-    game.chooseSpace("c1");
-    if(game.currentPlayer === game.player1.name){
-      $('#c1').html(`X`);
-    } else {
-      $('#c1').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-
-  });
-
-  $("#c2Link").on("click", function(){
-    game.chooseSpace("c2");
-    if(game.currentPlayer === game.player1.name){
-      $('#c2').html(`X`);
-    } else {
-      $('#c2').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-
-  });
-
-  $("#c3Link").on("click", function(){
-    game.chooseSpace("c3");
-    if(game.currentPlayer === game.player1.name){
-      $('#c3').html(`X`);
-    } else {
-      $('#c3').html(`O`);
-    }
-    if(game.gameOver){
-      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
-      $( "a" ).remove();
-    }
-    console.log(game);
-  });
-});
