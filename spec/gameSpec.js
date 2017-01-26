@@ -32,9 +32,17 @@ describe("Game", function() {
       game.addPlayer(player1);
       game.addPlayer(player2);
     });
+
     it("should be player 1's turn at the start", function(){
       game.startGame();
       expect(game.player1.isTurn).toEqual(true);
+    });
+
+    it("should swtich turns after a player plays", function(){
+      game.startGame();
+      game.switchTurn();
+      expect(game.player1.isTurn).toEqual(false);
+      expect(game.player2.isTurn).toEqual(true);
     });
   });
 

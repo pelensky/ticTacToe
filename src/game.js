@@ -16,3 +16,8 @@ Game.prototype.addPlayer = function(player) {
 Game.prototype.startGame = function(){
   this.player1.switchTurn();
 };
+
+Game.prototype.switchTurn = function(){
+  this.player1.switchTurn();
+  this.player2.switchTurn();
+};
