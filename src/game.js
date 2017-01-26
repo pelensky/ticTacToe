@@ -34,9 +34,6 @@ Game.prototype.chooseSpace = function(space){
   this._checkCurrentPlayer();
   this._isGameWon();
   this._switchTurn();
-
-
-
 };
 
 Game.prototype._switchTurn = function(){
