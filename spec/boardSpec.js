@@ -5,7 +5,7 @@ describe("Board", function() {
     board = new Board;
   });
 
-  it("Should take a name as an argument", function() {
+  it("Should start with no moves on it", function() {
     expect(board.isClear).toEqual(true);
   });
 });
