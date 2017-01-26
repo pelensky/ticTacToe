@@ -21,7 +21,6 @@ Game.prototype.startGame = function(){
 
 
 Game.prototype.chooseSpace = function(space){
-
   if (this.player1.currentPlayer()) {
     this.board.chooseSpace(space, "X");
   } else {

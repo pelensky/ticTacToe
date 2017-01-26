@@ -16,25 +16,27 @@
 
 <body>
   <h1> Let's Play Tic Tac Toe!</h1>
+  <div id="names">
     <label>Player 1 <input id="player1TextField" type='text'></label>
     <label>Player 2 <input id="player2TextField" type='text'></label>
     <input id="addPlayersButton" type="button" value="Add Players">
+  </div>
   <table>
-      <tr>
-          <td><div id="a1"></div></td>
-          <td><div id="a2"></div></td>
-          <td><div id="a3"></div></td>
-      </tr>
-      <tr>
-          <td><div id="b1"></div></td>
-          <td><div id="b2"></div></td>
-          <td><div id="b3"></div></td>
-      </tr>
-      <tr>
-          <td><div id="c1"></div></td>
-          <td><div id="c2"></div></td>
-          <td><div id="c3"></div></td>
-      </tr>
+    <tr>
+      <td><div id="a1"><a href="#" id="a1Link">Empty</a></div></td>
+        <td><div id="a2"><a href="#" id="a2Link">Empty</a></div></td>
+        <td><div id="a3"><a href="#" id="a3Link">Empty</a></div></td>
+    </tr>
+    <tr>
+      <td><div id="b1"><a href="#" id="b1Link">Empty</a></div></td>
+        <td><div id="b2"><a href="#" id="b2Link">Empty</a></div></td>
+        <td><div id="b3"><a href="#" id="b3Link">Empty</a></div></td>
+    </tr>
+    <tr>
+      <td><div id="c1"><a href="#" id="c1Link">Empty</a></div></td>
+        <td><div id="c2"><a href="#" id="c2Link">Empty</a></div></td>
+        <td><div id="c3"><a href="#" id="c3Link">Empty</a></div></td>
+    </tr>
   </table>
   <script src="src/player.js"></script>
   <script src="src/board.js"></script>
