@@ -21,6 +21,10 @@ $(document).ready(function() {
     } else {
       $('#a1').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
   });
 
@@ -31,8 +35,11 @@ $(document).ready(function() {
     } else {
       $('#a2').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
-
   });
 
   $("#a3Link").on("click", function(){
@@ -41,6 +48,10 @@ $(document).ready(function() {
       $('#a3').html(`X`);
     } else {
       $('#a3').html(`O`);
+    }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
     }
     console.log(game);
 
@@ -53,6 +64,10 @@ $(document).ready(function() {
     } else {
       $('#b1').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
 
   });
@@ -63,6 +78,10 @@ $(document).ready(function() {
       $('#b2').html(`X`);
     } else {
       $('#b2').html(`O`);
+    }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
     }
     console.log(game);
 
@@ -75,6 +94,10 @@ $(document).ready(function() {
     } else {
       $('#b3').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
 
   });
@@ -85,6 +108,10 @@ $(document).ready(function() {
       $('#c1').html(`X`);
     } else {
       $('#c1').html(`O`);
+    }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
     }
     console.log(game);
 
@@ -97,6 +124,10 @@ $(document).ready(function() {
     } else {
       $('#c2').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
 
   });
@@ -108,7 +139,10 @@ $(document).ready(function() {
     } else {
       $('#c3').html(`O`);
     }
+    if(game.gameOver){
+      $('#names').html(`<h2>${game.winner} is the almighty winner!</h2>`);
+      $( "a" ).remove();
+    }
     console.log(game);
-
   });
 });
