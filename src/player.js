@@ -12,3 +12,11 @@ Player.prototype.switchTurn = function(){
     this.isTurn = true;
   }
 };
+
+Player.prototype.currentPlayer = function(){
+  if(this.isTurn){
+    return true;
+  } else {
+    return false;
+  }
+}

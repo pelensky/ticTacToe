@@ -18,9 +18,17 @@ describe("Board", function() {
       expect(board.chooseSpace("a1", "X")).toEqual("X");
     });
 
-    it("should not allow a player to choose a taken space", function(){
+    it("should allow a player to choose any place on the grid", function(){
       board.chooseSpace("a1", "X");
-      expect(board.chooseSpace("a1", "O")).toEqual("This space is taken, try again");
+      expect(board.chooseSpace("a2","O")).toEqual("O");
+      expect(board.chooseSpace("a3","X")).toEqual("X");
+      expect(board.chooseSpace("b1","O")).toEqual("O");
+      expect(board.chooseSpace("b2","X")).toEqual("X");
+      expect(board.chooseSpace("b3","O")).toEqual("O");
+      expect(board.chooseSpace("c1","X")).toEqual("X");
+      expect(board.chooseSpace("c2","O")).toEqual("O");
+      expect(board.chooseSpace("c3","X")).toEqual("X");
     });
+
   });
 });

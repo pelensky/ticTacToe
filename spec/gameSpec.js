@@ -51,11 +51,16 @@ describe("Game", function() {
       game.addPlayer(player1);
       game.addPlayer(player2);
       game.startGame();
+      game.chooseSpace("a1");
     });
 
     it("should allows the player1 (X) to choose a space on the grid", function(){
-      game.chooseSpace("a1");
-    expect(game.board.spaces).toEqual(["X","a2","a3","b1","b2","b3","c1","c2","c3"]);
+      expect(game.board.spaces).toEqual(["X","a2","a3","b1","b2","b3","c1","c2","c3"]);
+    });
+
+    it("should allows the player1 (X) to choose a space on the grid", function(){
+      game.chooseSpace("b2");
+      expect(game.board.spaces).toEqual(["X","a2","a3","b1","O","b3","c1","c2","c3"]);
     });
   });
 });

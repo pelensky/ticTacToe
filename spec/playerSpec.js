@@ -29,4 +29,11 @@ describe("Player", function() {
       expect(player1.isTurn).toBe(false);
     });
   });
+
+  describe("Current player", function(){
+    it("should know if it is the current player", function(){
+      player1.switchTurn();
+      expect(player1.currentPlayer()).toBe(true);
+    });
+  });
 });

@@ -24,5 +24,10 @@ Game.prototype.switchTurn = function(){
 };
 
 Game.prototype.chooseSpace = function(space){
-this.board.chooseSpace(space, "X");
+  if (this.player1.currentPlayer()) {
+    this.board.chooseSpace(space, "X");
+  } else {
+    this.board.chooseSpace(space, "O");
+  }
+  this.switchTurn();
 };
