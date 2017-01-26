@@ -10,8 +10,8 @@ function Game() {
 }
 
 Game.prototype.addPlayers = function(player1, player2) {
-    this.player1 = player1;
-    this.player2 = player2;
+  this.player1 = player1;
+  this.player2 = player2;
 };
 
 Game.prototype.startGame = function(){
@@ -21,15 +21,17 @@ Game.prototype.startGame = function(){
 
 
 Game.prototype.chooseSpace = function(space){
-  if (this.player1.currentPlayer()) {
-    this.board.chooseSpace(space, "X");
-  } else {
-    this.board.chooseSpace(space, "O");
+  if(!this.gameOver){
+    if (this.player1.currentPlayer()) {
+      this.board.chooseSpace(space, "X");
+    } else {
+      this.board.chooseSpace(space, "O");
+    }
+    this._incrementTurnCount();
+    this._checkCurrentPlayer();
+    this._isGameWon();
+    this._switchTurn();
   }
-  this._incrementTurnCount();
-  this._checkCurrentPlayer();
-  this._isGameWon();
-  this._switchTurn();
 };
 
 Game.prototype._switchTurn = function(){

@@ -80,10 +80,6 @@ describe("Game", function() {
       expect(game.board.spaces).toEqual(["X","O","X","O","X","O","c1","c2","c3"]);
       game.chooseSpace("c1");
       expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","c2","c3"]);
-      game.chooseSpace("c2");
-      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","c3"]);
-      game.chooseSpace("c3");
-      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","X"]);
     });
   });
 
