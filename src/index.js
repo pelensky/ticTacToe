@@ -3,6 +3,7 @@ $(document).ready(function() {
   var player1;
   var player2;
 
+  $( "a" ).hide();
   $("#addPlayersButton").on("click", function(){
     var player1Name = $("#player1TextField").val();
     var player2Name = $("#player2TextField").val();
@@ -10,6 +11,7 @@ $(document).ready(function() {
     var player2 = new Player(player2Name);
     game.addPlayers(player1, player2);
     game.startGame();
+    $( "a" ).show();
     $('#names').html(`${player1.name} vs ${player2.name}`);
   });
 
