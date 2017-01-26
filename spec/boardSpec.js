@@ -43,19 +43,22 @@ describe("Board", function() {
   describe("Winning", function(){
     it("should know when the game has not been won", function(){
       board.hasGameBeenWon();
-      expect(board.isGameWon).toEqual(false);
+      expect(board.hasGameBeenWon()).not.toEqual(true);
       board.spaces = ["X","O","X","X","b2","b3","c1","c2","c3"]
       board.hasGameBeenWon();
-      expect(board.isGameWon).toEqual(false);
+      expect(board.hasGameBeenWon()).not.toEqual(true);
+      board.spaces = ["X","O","X","X","b2","b3","c1","O","O"]
+      board.hasGameBeenWon();
+      expect(board.hasGameBeenWon()).not.toEqual(true);
     });
-    });
+  });
 
-    it("should know when the game has been won", function(){
-      board.spaces = ["X","X","X","b1","b2","b3","c1","c2","c3"]
-      expect(board.hasGameBeenWon()).toEqual(true);
-      board.spaces = ["a1","a2","a3","O","O","O","c1","c2","c3"]
-      expect(board.hasGameBeenWon()).toEqual(true);
-      board.spaces = ["X","a2","a3","b1","X","b3","c1","c2","X"]
-      expect(board.hasGameBeenWon()).toEqual(true);
+  it("should know when the game has been won", function(){
+    board.spaces = ["X","X","X","b1","b2","b3","c1","c2","c3"]
+    expect(board.hasGameBeenWon()).toEqual(true);
+    board.spaces = ["a1","a2","a3","O","O","O","c1","c2","c3"]
+    expect(board.hasGameBeenWon()).toEqual(true);
+    board.spaces = ["X","a2","a3","b1","X","b3","c1","c2","X"]
+    expect(board.hasGameBeenWon()).toEqual(true);
   });
 });

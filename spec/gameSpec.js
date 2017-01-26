@@ -14,6 +14,10 @@ describe("Game", function() {
     expect(game.player2).toEqual(null);
   });
 
+  it("should initialize with a turn count of zero", function() {
+    expect(game.turnCount).toEqual(0);
+  });
+
   describe("Adding players", function(){
     it("should add player 1 (X)", function(){
       game.addPlayer(player1);
@@ -79,6 +83,16 @@ describe("Game", function() {
       expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","c3"]);
       game.chooseSpace("c3");
       expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","O","X"]);
+    });
+  });
+
+  describe("turn count", function(){
+    it("should increase by one each turn", function(){
+      game.addPlayer(player1);
+      game.addPlayer(player2);
+      game.startGame();
+      game.chooseSpace("a1");
+      expect(game.turnCount).toEqual(1);
     });
   });
 });

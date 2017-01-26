@@ -3,6 +3,7 @@
 function Game() {
   this.player1 = null;
   this.player2 = null;
+  this.turnCount = 0;
 }
 
 Game.prototype.addPlayer = function(player) {
@@ -29,5 +30,10 @@ Game.prototype.chooseSpace = function(space){
   } else {
     this.board.chooseSpace(space, "O");
   }
+  this._incrementTurnCount();
   this.switchTurn();
+};
+
+Game.prototype._incrementTurnCount = function(){
+  this.turnCount ++;
 };
