@@ -44,7 +44,7 @@ describe("Game", function() {
 
     it("should swtich turns after a player plays", function(){
       game.startGame();
-      game.switchTurn();
+      game._switchTurn();
       expect(game.player1.isTurn).toEqual(false);
       expect(game.player2.isTurn).toEqual(true);
     });
@@ -65,6 +65,10 @@ describe("Game", function() {
     it("should allow player2 (X) to choose a space on the grid", function(){
       game.chooseSpace("a2");
       expect(game.board.spaces).toEqual(["X","O","a3","b1","b2","b3","c1","c2","c3"]);
+    });
+
+    it("should know the current player", function(){
+      expect(game.currentPlayer).toEqual("Dan");
     });
 
     it("should continue until the board is full", function(){
@@ -95,4 +99,29 @@ describe("Game", function() {
       expect(game.turnCount).toEqual(1);
     });
   });
+
+  describe("check if game is won", function(){
+    beforeEach(function() {
+      game.addPlayer(player1);
+      game.addPlayer(player2);
+      game.startGame();
+      game.chooseSpace("a1");
+      game.chooseSpace("b1");
+      game.chooseSpace("a2");
+      game.chooseSpace("b2");
+    });
+    it("Player 1 wins", function(){
+      game.chooseSpace("a3");
+      expect(game.gameOver).toEqual(true);
+      expect(game.winner).toEqual("Dan");
+    });
+
+    it("Player 2 wins", function(){
+      game.chooseSpace("c1");
+      game.chooseSpace("b3");
+      expect(game.gameOver).toEqual(true);
+      expect(game.winner).toEqual("Courtney");
+    });
+  });
+
 });
