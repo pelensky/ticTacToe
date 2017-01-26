@@ -10,6 +10,10 @@ Board.prototype.chooseSpace = function(space, player){
     if(space === this.spaces[i]){
       this.spaces[i] = player;
       return this.spaces[i]
-    } 
+    }
   }
+};
+
+Board.prototype.isBoardClear = function(){
+  return this.spaces === ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
 };

@@ -13,6 +13,11 @@ describe("Board", function() {
     expect(board.spaces).toEqual(["a1","a2","a3","b1","b2","b3","c1","c2","c3"]);
   });
 
+  it("will not be a clear board if any spaces are taken", function(){
+    board.chooseSpace("a1", "X");
+    expect(board.isBoardClear()).toEqual(false);
+  });
+
   describe("Choosing a space", function(){
     it("should allow a player to choose an empty space", function(){
       expect(board.chooseSpace("a1", "X")).toEqual("X");
