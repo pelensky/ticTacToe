@@ -2,6 +2,17 @@ describe("Game", function() {
   var game;
   var player1;
   var player2;
+  var a1 = Symbol();
+  var a2 = Symbol();
+  var a3 = Symbol();
+  var b1 = Symbol();
+  var b2 = Symbol();
+  var b3 = Symbol();
+  var c1 = Symbol();
+  var c2 = Symbol();
+  var c3 = Symbol();
+  var p1 = Symbol();
+  var p2 = Symbol();
 
   beforeEach(function() {
     player1 = new Player("Dan");
@@ -46,4 +57,15 @@ describe("Game", function() {
     });
   });
 
+  describe("Choosing a space", function(){
+    beforeEach(function() {
+      game.addPlayer(player1);
+      game.addPlayer(player2);
+      game.startGame();
+    });
+    it("should allows the player to choose a space on the grid", function(){
+      game.chooseSpace(a1);
+    expect(game.board.a1).toEqual(p1);
+    });
+  });
 });
