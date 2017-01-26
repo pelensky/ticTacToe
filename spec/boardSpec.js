@@ -9,6 +9,10 @@ describe("Board", function() {
     expect(board.isClear).toEqual(true);
   });
 
+  it("Should start with the game not over", function() {
+    expect(board.isGameOver).toEqual(false);
+  });
+
   it("Should start with nine spaces, that are all empty", function() {
     expect(board.spaces).toEqual(["a1","a2","a3","b1","b2","b3","c1","c2","c3"]);
   });
@@ -34,6 +38,11 @@ describe("Board", function() {
       expect(board.chooseSpace("c2","O")).toEqual("O");
       expect(board.chooseSpace("c3","X")).toEqual("X");
     });
+  });
 
+  describe("Winning", function(){
+    it("should know when the game has been won", function(){
+    expect(board.isGameWon()).toEqual(false);
+    });
   });
 });
