@@ -96,22 +96,38 @@ describe("Game", function() {
     beforeEach(function() {
       game.addPlayers(player1, player2);
       game.startGame();
+    });
+    it("Player 1 wins", function(){
       game.chooseSpace("a1");
       game.chooseSpace("b1");
       game.chooseSpace("a2");
       game.chooseSpace("b2");
-    });
-    it("Player 1 wins", function(){
       game.chooseSpace("a3");
       expect(game.gameOver).toEqual(true);
       expect(game.winner).toEqual("Dan");
     });
 
     it("Player 2 wins", function(){
+      game.chooseSpace("a1");
+      game.chooseSpace("b1");
+      game.chooseSpace("a2");
+      game.chooseSpace("b2");
       game.chooseSpace("c1");
       game.chooseSpace("b3");
       expect(game.gameOver).toEqual(true);
       expect(game.winner).toEqual("Courtney");
+    });
+
+    it("longer game", function(){
+      game.chooseSpace("a1");
+      game.chooseSpace("c3");
+      game.chooseSpace("c1");
+      game.chooseSpace("b1");
+      game.chooseSpace("a3");
+      game.chooseSpace("b2");
+      game.chooseSpace("a2");
+      expect(game.gameOver).toEqual(true);
+      expect(game.winner).toEqual("Dan");
     });
   });
 

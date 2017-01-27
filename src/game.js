@@ -49,11 +49,22 @@ Game.prototype._isItAfterTurnThree = function(){
   }
 };
 
+Game.prototype._isItAfterTurnEight = function(){
+  if(this.turnCount > 8){
+    return true;
+  }
+};
+
 Game.prototype._isGameWon = function(){
   if(this._isItAfterTurnThree()){
     if (this.board.hasGameBeenWon()){
       this.gameOver = true;
       this.winner = this.currentPlayer;
+    } else if (this._isItAfterTurnEight()){
+      if (!this.board.hasGameBeenWon()){
+        this.gameOver = true;
+        this.nobodyWins = true;
+      }
     }
   }
 };

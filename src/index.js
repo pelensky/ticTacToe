@@ -15,10 +15,21 @@ $(document).ready(function() {
     $('#names').html(`${player1.name} vs ${player2.name}`);
   });
 
+  // var spaces = [ "a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3" ];
+  //
+  // for(var i = 0; i < spaces.length; i++){
+  //   $(`#${spaces[i]}Link`).on("click", function(){
+  //     choosingASpace(`${spaces[i]}`);
+  //   });
+  // }
+  // $('td').on('click', function(){
+  //   var id = $(this).attr('name')
+  //   choosingASpace(space);
+  // })
+
   $("#a1Link").on("click", function(){
     var space = "a1";
     choosingASpace(space);
-    checkGameOver();
   });
 
   $("#a2Link").on("click", function(){
@@ -29,47 +40,36 @@ $(document).ready(function() {
   $("#a3Link").on("click", function(){
     var space = "a3";
     choosingASpace(space);
-    checkGameOver();
-
   });
 
   $("#b1Link").on("click", function(){
     var space = "b1";
     choosingASpace(space);
-    checkGameOver();
-
   });
 
   $("#b2Link").on("click", function(){
     var space = "b2";
     choosingASpace(space);
-    checkGameOver();
-
   });
 
   $("#b3Link").on("click", function(){
     var space = "b3";
     choosingASpace(space);
-    checkGameOver();
-
   });
 
   $("#c1Link").on("click", function(){
     var space = "c1";
     choosingASpace(space);
-    checkGameOver();
   });
 
   $("#c2Link").on("click", function(){
     var space = "c2";
     choosingASpace(space);
-    checkGameOver();
   });
 
   $("#c3Link").on("click", function(){
     var space = "c3";
     choosingASpace(space);
-    checkGameOver();
   });
 
   function choosingASpace(space){
@@ -79,14 +79,18 @@ $(document).ready(function() {
     } else {
       $("#" + space).html(`O`);
     }
+    checkGameOver();
+    console.log(game);
   }
 
   function checkGameOver() {
     if(game.gameOver){
-      $('h1').html(`${game.winner} is the almighty winner!`);
-      $( "a" ).remove();
+      if(game.winner){
+        $('h1').html(`${game.winner} is the almighty winner!`);
+        $( "a" ).remove();
+      } else {
+      $('h1').html(`Nobody wins, losers!`);
+      }
     }
   }
-
-
 });
