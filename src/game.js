@@ -72,7 +72,9 @@ Game.prototype._isGameWon = function(){
 Game.prototype._checkCurrentPlayer = function(){
   if(this.player1.currentPlayer()){
     this.currentPlayer = this.player1.name;
+    this.currentOpponent = this.player2.name;
   } else {
     this.currentPlayer = this.player2.name;
+    this.currentOpponent = this.player1.name;
   }
 };
