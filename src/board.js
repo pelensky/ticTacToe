@@ -4,7 +4,7 @@ function Board() {
   this.isClear = true;
   this.isGameOver = false;
   this.isGameWon = false;
-  this.spaces = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+  this.spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 Board.prototype.chooseSpace = function(space, player){
@@ -17,7 +17,7 @@ Board.prototype.chooseSpace = function(space, player){
 };
 
 Board.prototype.isBoardClear = function(){
-  return this.spaces === ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
+  return this.spaces === [0, 1, 2, 3, 4, 5, 6, 7, 8];
 };
 
 Board.prototype.hasGameBeenWon = function(){
