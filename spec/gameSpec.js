@@ -52,16 +52,16 @@ describe("Game", function() {
     beforeEach(function() {
       game.addPlayers(player1, player2);
       game.startGame();
-      game.chooseSpace("a1");
+      game.chooseSpace(0);
     });
 
     it("should allows player1 (X) to choose a space on the grid", function(){
-      expect(game.board.spaces).toEqual(["X","a2","a3","b1","b2","b3","c1","c2","c3"]);
+      expect(game.board.spaces).toEqual(["X",1,2,3,4,5,6,7,8]);
     });
 
     it("should allow player2 (X) to choose a space on the grid", function(){
-      game.chooseSpace("a2");
-      expect(game.board.spaces).toEqual(["X","O","a3","b1","b2","b3","c1","c2","c3"]);
+      game.chooseSpace(1);
+      expect(game.board.spaces).toEqual(["X","O",2,3,4,5,6,7,8]);
     });
 
     it("should know the current player", function(){
@@ -69,17 +69,17 @@ describe("Game", function() {
     });
 
     it("should continue until the board is full", function(){
-      game.chooseSpace("a2");
-      game.chooseSpace("a3");
-      expect(game.board.spaces).toEqual(["X","O","X","b1","b2","b3","c1","c2","c3"]);
-      game.chooseSpace("b1");
-      expect(game.board.spaces).toEqual(["X","O","X","O","b2","b3","c1","c2","c3"]);
-      game.chooseSpace("b2");
-      expect(game.board.spaces).toEqual(["X","O","X","O","X","b3","c1","c2","c3"]);
-      game.chooseSpace("b3");
-      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","c1","c2","c3"]);
-      game.chooseSpace("c1");
-      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X","c2","c3"]);
+      game.chooseSpace(1);
+      game.chooseSpace(2);
+      expect(game.board.spaces).toEqual(["X","O","X",3,4,5,6,7,8]);
+      game.chooseSpace(3);
+      expect(game.board.spaces).toEqual(["X","O","X","O",4,5,6,7,8]);
+      game.chooseSpace(4);
+      expect(game.board.spaces).toEqual(["X","O","X","O","X",5,6,7,8]);
+      game.chooseSpace(5);
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O",6,7,8]);
+      game.chooseSpace(6);
+      expect(game.board.spaces).toEqual(["X","O","X","O","X","O","X",7,8]);
     });
   });
 
@@ -87,7 +87,7 @@ describe("Game", function() {
     it("should increase by one each turn", function(){
       game.addPlayers(player1, player2);
       game.startGame();
-      game.chooseSpace("a1");
+      game.chooseSpace(0);
       expect(game.turnCount).toEqual(1);
     });
   });
@@ -98,34 +98,34 @@ describe("Game", function() {
       game.startGame();
     });
     it("Player 1 wins", function(){
-      game.chooseSpace("a1");
-      game.chooseSpace("b1");
-      game.chooseSpace("a2");
-      game.chooseSpace("b2");
-      game.chooseSpace("a3");
+      game.chooseSpace(0);
+      game.chooseSpace(3);
+      game.chooseSpace(1);
+      game.chooseSpace(4);
+      game.chooseSpace(2);
       expect(game.gameOver).toEqual(true);
       expect(game.winner).toEqual("Dan");
     });
 
     it("Player 2 wins", function(){
-      game.chooseSpace("a1");
-      game.chooseSpace("b1");
-      game.chooseSpace("a2");
-      game.chooseSpace("b2");
-      game.chooseSpace("c1");
-      game.chooseSpace("b3");
+      game.chooseSpace(0);
+      game.chooseSpace(3);
+      game.chooseSpace(1);
+      game.chooseSpace(4);
+      game.chooseSpace(6);
+      game.chooseSpace(5);
       expect(game.gameOver).toEqual(true);
       expect(game.winner).toEqual("Courtney");
     });
 
     it("longer game", function(){
-      game.chooseSpace("a1");
-      game.chooseSpace("c3");
-      game.chooseSpace("c1");
-      game.chooseSpace("b1");
-      game.chooseSpace("a3");
-      game.chooseSpace("b2");
-      game.chooseSpace("a2");
+      game.chooseSpace(0);
+      game.chooseSpace(8);
+      game.chooseSpace(6);
+      game.chooseSpace(3);
+      game.chooseSpace(2);
+      game.chooseSpace(4);
+      game.chooseSpace(1);
       expect(game.gameOver).toEqual(true);
       expect(game.winner).toEqual("Dan");
     });
