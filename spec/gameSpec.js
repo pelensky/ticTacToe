@@ -131,4 +131,15 @@ describe("Game", function() {
     });
   });
 
+  describe("reset game", function(){
+    it("should clear the board", function(){
+      game.addPlayers(player1, player2);
+      game.startGame();
+      game.chooseSpace(0);
+      game.chooseSpace(3);
+      game.chooseSpace(1);
+      game.resetGame();
+      expect(game.board.spaces).toEqual([0,1,2,3,4,5,6,7,8]);
+    });
+  });
 });

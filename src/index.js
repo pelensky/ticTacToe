@@ -20,6 +20,11 @@ $(document).ready(function() {
     choosingASpace(parseInt(space));
   })
 
+  $('#resetGame').on('click', function(){
+      game.resetGame();
+      window.location.reload();
+  })
+
 
   function choosingASpace(space){
     if(!game.gameOver){
@@ -44,7 +49,6 @@ function checkGameOver() {
     } else {
       $('h1').html(`Nobody wins, losers!`);
     }
-    $('#playAgainButton').removeClass('hidden');
   }
 }
 });

@@ -19,6 +19,10 @@ Game.prototype.startGame = function(){
   this.board = new Board();
 };
 
+Game.prototype.resetGame = function(){
+  this._clearGame();
+};
+
 
 Game.prototype.chooseSpace = function(space){
   if(!this.gameOver){
@@ -78,3 +82,13 @@ Game.prototype._checkCurrentPlayer = function(){
     this.currentOpponent = this.player1.name;
   }
 };
+
+Game.prototype._clearGame = function() {
+  this.player1 = null;
+  this.player2 = null;
+  this.currentPlayer = null;
+  this.turnCount = 0;
+  this.gameOver = false;
+  this.winner = null;
+  this.board = new Board();
+}
