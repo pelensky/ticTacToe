@@ -39,3 +39,8 @@ a {
   color: #ADD8E6;
   text-decoration: none;
 }
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}

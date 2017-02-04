@@ -3,7 +3,6 @@ $(document).ready(function() {
   var player1;
   var player2;
 
-  $( "a" ).hide();
   $("#addPlayersButton").on("click", function(){
     var player1Name = $("#player1TextField").val();
     var player2Name = $("#player2TextField").val();
@@ -45,6 +44,7 @@ function checkGameOver() {
     } else {
       $('h1').html(`Nobody wins, losers!`);
     }
+    $('#playAgainButton').removeClass('hidden');
   }
 }
 });
